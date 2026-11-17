@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,22 +7,18 @@
 
     <title>Physics Laboratory | Laboratorio de Física</title>
 
-    <meta name="description" content="Laboratorio interactivo de física: circuitos eléctricos, ley de Ohm, cargas eléctricas y baloncesto eléctrico.">
+    <meta name="description" content="Laboratorio interactivo de física: circuitos eléctricos, ley de Ohm, capacitores y circuitos RC.">
 
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-    <!-- =====================================
-         ENCABEZADO PRINCIPAL
-    ====================================== -->
+    <!-- ENCABEZADO -->
 
     <header class="main-header">
-
         <div class="brand">
             <div class="brand-symbol">Φ</div>
-
             <div class="brand-text">
                 <h1>PHYSICS <span>LAB</span></h1>
                 <p>Laboratorio interactivo de física</p>
@@ -34,18 +29,13 @@
             <span class="online-indicator"></span>
             <span>SIMULADOR INTERACTIVO</span>
         </div>
-
     </header>
 
-
-    <!-- =====================================
-         NAVEGACIÓN ENTRE LABORATORIOS
-    ====================================== -->
+    <!-- NAVEGACIÓN -->
 
     <nav class="main-navigation" aria-label="Secciones del laboratorio">
 
-        <button
-            class="nav-button active"
+        <button class="nav-button active"
             id="navCircuits"
             data-section="circuits"
             type="button">
@@ -53,13 +43,11 @@
             <span class="nav-icon">⌁</span>
             <span>
                 <strong>Circuitos eléctricos</strong>
-                <small>Ley de Ohm y conexiones</small>
+                <small>Ley de Ohm y circuitos RC</small>
             </span>
-
         </button>
 
-        <button
-            class="nav-button"
+        <button class="nav-button"
             id="navBasketball"
             data-section="basketball"
             type="button">
@@ -69,30 +57,23 @@
                 <strong>Baloncesto eléctrico</strong>
                 <small>Cargas y campos eléctricos</small>
             </span>
-
         </button>
 
     </nav>
 
-
     <main class="main-content">
 
-
         <!-- =====================================
-             SECCIÓN 1: CIRCUITOS ELÉCTRICOS
+             LABORATORIO 01: CIRCUITOS ELÉCTRICOS
         ====================================== -->
 
-        <section
-            class="laboratory-section active"
+        <section class="laboratory-section active"
             id="circuitsSection">
 
             <div class="section-heading">
-
                 <div>
                     <span class="eyebrow">LABORATORIO 01 / ELECTRICIDAD</span>
-
                     <h2>Construcción de circuitos</h2>
-
                     <p>
                         Construye circuitos eléctricos, modifica sus componentes
                         y observa cómo se comportan la corriente y el voltaje.
@@ -100,17 +81,13 @@
                 </div>
 
                 <div class="section-number">01</div>
-
             </div>
 
-
-            <!-- CONTROLES DE CIRCUITOS -->
+            <!-- BARRA DE COMPONENTES -->
 
             <div class="circuit-toolbar">
 
-                <div class="toolbar-label">
-                    COMPONENTES
-                </div>
+                <div class="toolbar-label">COMPONENTES</div>
 
                 <div class="component-tools">
 
@@ -124,6 +101,12 @@
                         data-component="resistor">
                         <span class="component-icon">⌁</span>
                         <span>Resistencia</span>
+                    </button>
+
+                    <button class="component-button" type="button"
+                        data-component="capacitor">
+                        <span class="component-icon">║</span>
+                        <span>Capacitor</span>
                     </button>
 
                     <button class="component-button" type="button"
@@ -154,33 +137,28 @@
 
                 <div class="toolbar-actions">
 
-                    <button
-                        class="secondary-button"
+                    <button class="secondary-button"
                         id="wireModeButton"
                         type="button">
                         + Cable
                     </button>
 
-                    <button
-                        class="secondary-button"
+                    <button class="secondary-button"
                         id="clearCircuitButton"
                         type="button">
                         Limpiar
                     </button>
 
                 </div>
-
             </div>
 
-
-            <!-- ESPACIO DE CONSTRUCCIÓN -->
+            <!-- ÁREA DE CONSTRUCCIÓN -->
 
             <div class="circuit-layout">
 
                 <div class="circuit-workspace">
 
                     <div class="workspace-topbar">
-
                         <div>
                             <span class="workspace-indicator"></span>
                             <strong>Área de construcción</strong>
@@ -189,37 +167,29 @@
                         <span class="workspace-hint">
                             Selecciona componentes para agregarlos al circuito
                         </span>
-
                     </div>
 
                     <div class="circuit-stage" id="circuitStage">
 
-                        <svg
-                            id="circuitSvg"
+                        <svg id="circuitSvg"
                             viewBox="0 0 1000 540"
                             preserveAspectRatio="xMidYMid meet"
                             role="img"
                             aria-label="Área interactiva para construir circuitos eléctricos">
 
                             <defs>
-                                <pattern
-                                    id="circuitGrid"
+                                <pattern id="circuitGrid"
                                     width="25"
                                     height="25"
                                     patternUnits="userSpaceOnUse">
 
-                                    <circle
-                                        cx="1"
-                                        cy="1"
-                                        r="1"
+                                    <circle cx="1" cy="1" r="1"
                                         fill="#64748b"
                                         opacity="0.25"/>
                                 </pattern>
                             </defs>
 
-                            <rect
-                                width="1000"
-                                height="540"
+                            <rect width="1000" height="540"
                                 fill="url(#circuitGrid)"/>
 
                             <g id="wireLayer"></g>
@@ -228,7 +198,8 @@
 
                         </svg>
 
-                        <div class="workspace-empty" id="circuitEmptyMessage">
+                        <div class="workspace-empty"
+                            id="circuitEmptyMessage">
 
                             <div class="empty-icon">⌁</div>
 
@@ -238,13 +209,10 @@
                                 Añade una batería y otros componentes
                                 para construir tu primer circuito.
                             </p>
-
                         </div>
-
                     </div>
 
                     <div class="workspace-footer">
-
                         <span>
                             <span class="footer-dot"></span>
                             Simulación de corriente continua (DC)
@@ -253,13 +221,10 @@
                         <span id="circuitStatus">
                             Esperando componentes
                         </span>
-
                     </div>
-
                 </div>
 
-
-                <!-- PANEL DE PROPIEDADES -->
+                <!-- PROPIEDADES Y MEDICIONES -->
 
                 <aside class="circuit-sidebar">
 
@@ -271,16 +236,12 @@
                         </div>
 
                         <div id="componentProperties">
-
                             <p class="empty-property">
                                 Selecciona un componente para modificar
                                 sus propiedades.
                             </p>
-
                         </div>
-
                     </div>
-
 
                     <div class="sidebar-card">
 
@@ -316,9 +277,7 @@
                             </div>
 
                         </div>
-
                     </div>
-
 
                     <div class="sidebar-card theory-card">
 
@@ -327,54 +286,244 @@
                             <h3>Ley de Ohm</h3>
                         </div>
 
-                        <div class="equation">
-                            V = I × R
-                        </div>
+                        <div class="equation">V = I × R</div>
 
                         <p>
                             La corriente eléctrica que circula por un
                             conductor es proporcional al voltaje e
                             inversamente proporcional a la resistencia.
                         </p>
-
                     </div>
 
                 </aside>
-
             </div>
 
+            <!-- =====================================
+                 EXPERIMENTO DE CIRCUITO RC
+            ====================================== -->
 
-            <!-- INFORMACIÓN DE LA ACTIVIDAD -->
+            <section class="rc-laboratory"
+                id="rcLaboratory"
+                aria-labelledby="rcTitle">
+
+                <div class="section-heading rc-heading">
+
+                    <div>
+                        <span class="eyebrow">
+                            EXPERIMENTO GUIADO / CIRCUITO RC
+                        </span>
+
+                        <h2 id="rcTitle">
+                            Carga y descarga de un capacitor
+                        </h2>
+
+                        <p>
+                            Explora cómo cambia el voltaje de un capacitor
+                            cuando se carga y cuando se descarga
+                            a través de una resistencia.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="rc-layout">
+
+                    <!-- PARÁMETROS -->
+
+                    <div class="sidebar-card rc-controls-card">
+
+                        <div class="card-heading">
+                            <span>01</span>
+                            <h3>Parámetros del circuito</h3>
+                        </div>
+
+                        <label for="rcResistance">
+                            Resistencia (R), en ohmios (Ω)
+                        </label>
+
+                        <input id="rcResistance"
+                            type="number"
+                            min="1"
+                            step="100"
+                            value="1000">
+
+                        <label for="rcCapacitance">
+                            Capacitancia (C), en microfaradios (μF)
+                        </label>
+
+                        <input id="rcCapacitance"
+                            type="number"
+                            min="0.1"
+                            step="1"
+                            value="100">
+
+                        <label for="rcVoltage">
+                            Voltaje de la fuente (V)
+                        </label>
+
+                        <input id="rcVoltage"
+                            type="number"
+                            min="0.1"
+                            step="0.5"
+                            value="5">
+
+                        <div class="rc-action-buttons">
+
+                            <button class="primary-game-button"
+                                id="rcChargeButton"
+                                type="button">
+                                Cargar
+                            </button>
+
+                            <button class="secondary-button"
+                                id="rcDischargeButton"
+                                type="button">
+                                Descargar
+                            </button>
+
+                            <button class="secondary-button"
+                                id="rcResetButton"
+                                type="button">
+                                Reiniciar
+                            </button>
+
+                        </div>
+
+                        <div class="rc-constant-display">
+                            <span>Constante de tiempo</span>
+
+                            <strong id="rcTimeConstant">
+                                τ = 0.10 s
+                            </strong>
+
+                            <small>τ = R × C</small>
+                        </div>
+
+                    </div>
+
+                    <!-- GRÁFICA -->
+
+                    <div class="sidebar-card rc-graph-card">
+
+                        <div class="card-heading">
+                            <span>02</span>
+                            <h3>Gráfica del voltaje del capacitor</h3>
+                        </div>
+
+                        <canvas id="rcGraphCanvas"
+                            width="900"
+                            height="420"
+                            role="img"
+                            aria-label="Gráfica del voltaje del capacitor en función del tiempo">
+                        </canvas>
+
+                        <div class="rc-live-values">
+
+                            <div>
+                                <span>Tiempo</span>
+                                <strong id="rcElapsedTime">0.00 s</strong>
+                            </div>
+
+                            <div>
+                                <span>Voltaje del capacitor</span>
+                                <strong id="rcCapacitorVoltage">0.00 V</strong>
+                            </div>
+
+                            <div>
+                                <span>Carga almacenada</span>
+                                <strong id="rcStoredCharge">0.00 μC</strong>
+                            </div>
+
+                            <div>
+                                <span>Corriente</span>
+                                <strong id="rcCurrent">0.00 mA</strong>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- INSTRUCCIONES -->
+
+                <div class="sidebar-card rc-instructions-card">
+
+                    <div class="card-heading">
+                        <span>03</span>
+                        <h3>Instrucciones del experimento RC</h3>
+                    </div>
+
+                    <ol>
+                        <li>
+                            Define los valores de resistencia,
+                            capacitancia y voltaje de la fuente.
+                        </li>
+
+                        <li>
+                            Presiona <strong>Cargar</strong> para observar
+                            cómo aumenta el voltaje del capacitor.
+                        </li>
+
+                        <li>
+                            Presiona <strong>Descargar</strong> para observar
+                            cómo disminuye el voltaje almacenado.
+                        </li>
+
+                        <li>
+                            Compara las curvas y modifica R o C para analizar
+                            el efecto sobre la constante de tiempo.
+                        </li>
+
+                        <li>
+                            Usa <strong>Reiniciar</strong> para comenzar
+                            nuevamente el experimento.
+                        </li>
+                    </ol>
+
+                    <p class="physics-note">
+                        En un circuito RC ideal, la constante de tiempo es
+                        τ = RC. Durante la carga, el voltaje del capacitor
+                        tiende al de la fuente; durante la descarga,
+                        tiende a cero.
+                    </p>
+
+                </div>
+
+            </section>
+
+            <!-- PIE DE ACTIVIDAD -->
 
             <div class="activity-footer">
 
                 <div>
                     <strong>Experimenta libremente</strong>
+
                     <p>
                         Modifica los componentes y comprueba cómo cambian
                         las magnitudes eléctricas.
                     </p>
                 </div>
 
-                <span class="activity-tag">EXPERIMENTO ABIERTO</span>
+                <span class="activity-tag">EXPERIMENTO ELÉCTRICO</span>
 
             </div>
 
         </section>
 
-
         <!-- =====================================
-             SECCIÓN 2: BALONCESTO ELÉCTRICO
+             LABORATORIO 02: BALONCESTO ELÉCTRICO
+             Se conserva para no alterar el módulo
+             que ya existe en el proyecto.
         ====================================== -->
 
-        <section
-            class="laboratory-section"
+        <section class="laboratory-section"
             id="basketballSection">
 
             <div class="section-heading">
-
                 <div>
-                    <span class="eyebrow">LABORATORIO 02 / ELECTROSTÁTICA</span>
+                    <span class="eyebrow">
+                        LABORATORIO 02 / ELECTROSTÁTICA
+                    </span>
 
                     <h2>Baloncesto eléctrico</h2>
 
@@ -385,417 +534,39 @@
                 </div>
 
                 <div class="section-number">02</div>
-
             </div>
-
-
-            <!-- SELECTOR DE NIVEL Y PROGRESO -->
 
             <div class="basketball-level-bar">
 
                 <div class="level-selector">
-
                     <label for="levelSelect">SELECCIONAR NIVEL</label>
 
                     <select id="levelSelect">
-
                         <option value="1">Nivel 1 — Introducción</option>
                         <option value="2">Nivel 2 — Primer obstáculo</option>
                         <option value="3">Nivel 3 — Zigzag</option>
                         <option value="4">Nivel 4 — Trayectoria compleja</option>
                         <option value="5">Nivel 5 — Desafío final</option>
-
                     </select>
-
                 </div>
 
-
                 <div class="level-progress">
-
                     <span>PROGRESO</span>
 
                     <div class="progress-levels">
-
                         <span class="level-point current" data-progress="1">1</span>
                         <span class="level-point" data-progress="2">2</span>
                         <span class="level-point" data-progress="3">3</span>
                         <span class="level-point" data-progress="4">4</span>
                         <span class="level-point" data-progress="5">5</span>
-
                     </div>
-
                 </div>
 
             </div>
-
-
-            <!-- TABLERO DEL JUEGO -->
 
             <div class="basketball-layout">
 
                 <div class="basketball-main">
 
-
-                    <!-- INFORMACIÓN DEL NIVEL -->
-
                     <div class="game-info-bar">
-
-                        <div>
-                            <span class="game-info-label">NIVEL ACTUAL</span>
-                            <strong id="currentLevelTitle">
-                                Introducción
-                            </strong>
-                        </div>
-
-                        <div>
-                            <span class="game-info-label">OBJETIVO</span>
-                            <span id="currentLevelDescription">
-                                Lleva la pelota hasta la canasta.
-                            </span>
-                        </div>
-
-                    </div>
-
-
-                    <!-- CONTROLES DEL JUEGO -->
-
-                    <div class="game-toolbar">
-
-                        <div class="game-controls">
-
-                            <button
-                                class="game-button primary-game-button"
-                                id="startGameButton"
-                                type="button">
-                                ▶ Iniciar
-                            </button>
-
-                            <button
-                                class="game-button"
-                                id="pauseGameButton"
-                                type="button"
-                                disabled>
-                                Ⅱ Pausar
-                            </button>
-
-                            <button
-                                class="game-button"
-                                id="resetGameButton"
-                                type="button">
-                                ↺ Reiniciar
-                            </button>
-
-                            <button
-                                class="game-button"
-                                id="clearChargesButton"
-                                type="button">
-                                × Limpiar cargas
-                            </button>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- CANVAS DEL JUEGO -->
-
-                    <div class="basketball-court-container">
-
-                        <canvas
-                            id="basketballCanvas"
-                            width="1100"
-                            height="650"
-                            aria-label="Tablero de baloncesto eléctrico. Coloca cargas para dirigir la pelota hacia la canasta.">
-
-                        </canvas>
-
-                        <div
-                            class="game-overlay"
-                            id="gameOverlay"
-                            hidden>
-
-                            <div class="overlay-content">
-
-                                <span class="overlay-symbol">✓</span>
-
-                                <h3 id="overlayTitle">
-                                    ¡Canasta!
-                                </h3>
-
-                                <p id="overlayMessage">
-                                    Has completado el nivel.
-                                </p>
-
-                                <button
-                                    id="nextLevelButton"
-                                    class="primary-game-button"
-                                    type="button">
-
-                                    Siguiente nivel →
-
-                                </button>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- ESTADO DEL JUEGO -->
-
-                    <div class="game-status-bar">
-
-                        <span id="gameStatusText" aria-live="polite">
-                            Coloca las cargas para preparar tu jugada.
-                        </span>
-
-                        <span id="chargeCount">
-                            Cargas colocadas: 0
-                        </span>
-
-                    </div>
-
-
-                    <!-- LEYENDA -->
-
-                    <div class="game-legend">
-
-                        <div>
-                            <span class="legend-charge positive-charge">+</span>
-                            <span>Carga positiva</span>
-                        </div>
-
-                        <div>
-                            <span class="legend-charge negative-charge">−</span>
-                            <span>Carga negativa</span>
-                        </div>
-
-                        <div>
-                            <span class="legend-ball"></span>
-                            <span>Pelota cargada positivamente</span>
-                        </div>
-
-                        <div>
-                            <span class="legend-hoop"></span>
-                            <span>Canasta</span>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- HERRAMIENTAS Y FÍSICA -->
-
-                <aside class="basketball-sidebar">
-
-
-                    <div class="sidebar-card charge-tools-card">
-
-                        <div class="card-heading">
-                            <span>01</span>
-                            <h3>Herramientas de carga</h3>
-                        </div>
-
-                        <p class="tools-description">
-                            Selecciona una carga y haz clic en el tablero
-                            para colocarla.
-                        </p>
-
-                        <div class="charge-selector">
-
-                            <button
-                                class="charge-tool positive-tool"
-                                id="positiveChargeButton"
-                                type="button"
-                                data-charge="positive">
-
-                                <span class="large-charge-symbol">+</span>
-
-                                <span>
-                                    <strong>Positiva</strong>
-                                    <small>+1 μC</small>
-                                </span>
-
-                            </button>
-
-
-                            <button
-                                class="charge-tool negative-tool"
-                                id="negativeChargeButton"
-                                type="button"
-                                data-charge="negative">
-
-                                <span class="large-charge-symbol">−</span>
-
-                                <span>
-                                    <strong>Negativa</strong>
-                                    <small>−1 μC</small>
-                                </span>
-
-                            </button>
-
-                        </div>
-
-                        <div class="selected-tool-info" id="selectedChargeInfo">
-                            Selecciona una herramienta para comenzar.
-                        </div>
-
-                    </div>
-
-
-                    <div class="sidebar-card">
-
-                        <div class="card-heading">
-                            <span>02</span>
-                            <h3>Datos físicos</h3>
-                        </div>
-
-                        <div class="physics-data">
-
-                            <div>
-                                <span>Carga de la pelota</span>
-                                <strong>+1 μC</strong>
-                            </div>
-
-                            <div>
-                                <span>Carga de cada elemento</span>
-                                <strong>±1 μC</strong>
-                            </div>
-
-                            <div>
-                                <span>Constante de Coulomb</span>
-                                <strong>k = 8.99 × 10⁹</strong>
-                            </div>
-
-                        </div>
-
-                        <div class="physics-note">
-                            La pelota tiene carga positiva. Las cargas
-                            negativas la atraen y las positivas la repelen.
-                        </div>
-
-                    </div>
-
-
-                    <div class="sidebar-card">
-
-                        <div class="card-heading">
-                            <span>03</span>
-                            <h3>Fuerza eléctrica</h3>
-                        </div>
-
-                        <div class="force-display">
-
-                            <span>Fuerza resultante</span>
-
-                            <strong id="resultantForce">
-                                0.00
-                            </strong>
-
-                            <small>N (Newtons)</small>
-
-                        </div>
-
-                        <div class="force-components">
-
-                            <div>
-                                <span>Componente X</span>
-                                <strong id="forceX">0.00 N</strong>
-                            </div>
-
-                            <div>
-                                <span>Componente Y</span>
-                                <strong id="forceY">0.00 N</strong>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="sidebar-card instructions-card">
-
-                        <div class="card-heading">
-                            <span>04</span>
-                            <h3>¿Cómo jugar?</h3>
-                        </div>
-
-                        <ol>
-
-                            <li>Selecciona una carga positiva o negativa.</li>
-
-                            <li>Haz clic en el tablero para colocarla.</li>
-
-                            <li>Coloca tantas cargas como necesites.</li>
-
-                            <li>Inicia la simulación y observa la trayectoria.</li>
-
-                            <li>Consigue encestar para superar el nivel.</li>
-
-                        </ol>
-
-                    </div>
-
-                </aside>
-
-            </div>
-
-
-            <!-- PIE DE ACTIVIDAD -->
-
-            <div class="activity-footer">
-
-                <div>
-                    <strong>Desafío de electrostática</strong>
-                    <p>
-                        Experimenta con la ley de Coulomb y la superposición
-                        de fuerzas para resolver los cinco niveles.
-                    </p>
-                </div>
-
-                <span class="activity-tag">5 NIVELES</span>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- =====================================
-         PIE DE PÁGINA
-    ====================================== -->
-
-    <footer class="main-footer">
-
-        <div>
-            <strong>PHYSICS LAB</strong>
-            <span>Laboratorio interactivo de física</span>
-        </div>
-
-        <span>Aprender · Experimentar · Descubrir</span>
-
-    </footer>
-
-
-    <!-- =====================================
-         MENSAJES PARA ACCESIBILIDAD
-    ====================================== -->
-
-    <div
-        id="accessibilityStatus"
-        class="visually-hidden"
-        aria-live="polite">
-    </div>
-
-
-    <!-- =====================================
-         JAVASCRIPT PRINCIPAL
-    ====================================== -->
-
-    <script type="module" src="js/main.js"></script>
-
-</body>
-</html>
+                        <d
